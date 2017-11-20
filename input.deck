@@ -1,0 +1,48 @@
+#RUN_TYPE efield_test
+RUN_TYPE efield_test_2d
+#RUN_TYPE advection_squares
+#RUN_TYPE advection_random
+#RUN_TYPE two_stream
+#RUN_TYPE landau_damping
+#RUN_TYPE convergence
+#RUN_TYPE advection_squares_2d11
+#RUN_TYPE advection_squares_2d12
+#RUN_TYPE advection_squares_2d21
+#RUN_TYPE advection_squares_2d22
+#RUN_TYPE landau_2d
+
+
+DT 1.0
+TEND 20.0
+NX 100
+NV 1
+USE_NEW_SWEEP true
+TIME_ORDER 1
+SWEEP_TOL   1e-10
+SWEEP1_TOL  1e-10
+SWEEP_MAXITER  1000
+SWEEP1_MAXITER  50
+EFIELD_TOL 1e-8
+EFIELD_MAXITER 1000
+EULER_TOLA 1e-24
+EULER_TOLR 1e-12
+EULER_MAXITER 200
+EULER_RESTART 10
+USE_NONLINEAR true
+UPWIND_FLUX true
+PRECONDITION false
+ESTIMATE_PS_NORM false
+
+
+PRINT_CONSERVED false
+PRINT_SWEEP     false
+PRINT_EFIELD    true
+PRINT_EULER     true
+PRINT_PETSC     false
+PRINT_CFL       false
+
+
+# dt = 0.01  tend = 0.5  for advection_squares (USE_NONLINEAR = false)
+# dt = 0.5   tend = 45.0 for two_stream
+# dt = 0.1   tend = 60.0 for landau_damping
+# dt = 0.025 tend = 1.0  for convergence at 80^2 resolution
